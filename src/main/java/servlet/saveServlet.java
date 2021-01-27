@@ -2,14 +2,13 @@ package servlet;
 
 import service.EmployeeDao;
 import util.JpaUtil;
-
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 public class saveServlet extends HttpServlet {
 
