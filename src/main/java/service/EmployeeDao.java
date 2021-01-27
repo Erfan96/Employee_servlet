@@ -30,7 +30,6 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
         save(employee);
         entityManager.getTransaction().commit();
         entityManager.close();
-        JpaUtil.Shutdown();
     }
 
     public List<Employee> getEmployees() {
