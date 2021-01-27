@@ -17,7 +17,7 @@
 <input name="email" type="text" placeholder="Enter email" required>
 <input type="submit" value="submit">
 </form>
-<form action="">
+<form action="show">
     <input type="submit" value="show">
 </form>
 </body>
