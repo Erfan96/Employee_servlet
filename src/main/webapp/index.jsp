@@ -11,6 +11,14 @@
     <title>Employee</title>
 </head>
 <body>
-hello
+<form action="" method="post">
+<input name="fName" type="text" placeholder="Enter first name" required>
+<input name="lName" type="text" placeholder="Enter last name" required>
+<input name="email" type="text" placeholder="Enter email" required>
+<input type="submit" value="submit">
+</form>
+<form action="">
+    <input type="submit" value="show">
+</form>
 </body>
 </html>
