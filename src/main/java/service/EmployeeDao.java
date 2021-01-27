@@ -13,4 +13,15 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
     public Class<Employee> getEntityClass() {
         return Employee.class;
     }
+
+    public void addEmployee(String fName, String lName, String email) {
+        entityManager.getTransaction().begin();
+        Employee employee = new Employee();
+        employee.setFirstName(fName);
+        employee.setLastName(lName);
+        employee.setEmail(email);
+        save(employee);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 }
