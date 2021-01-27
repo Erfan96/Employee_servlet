@@ -41,6 +41,4 @@
 </table>
 </body>
 </html>
-<%
-    JpaUtil.Shutdown();
-%>
+
