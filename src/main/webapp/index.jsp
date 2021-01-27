@@ -11,7 +11,7 @@
     <title>Employee</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="save" method="post">
 <input name="fName" type="text" placeholder="Enter first name" required>
 <input name="lName" type="text" placeholder="Enter last name" required>
 <input name="email" type="text" placeholder="Enter email" required>
