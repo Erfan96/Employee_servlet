@@ -1,4 +1,5 @@
-<%@ page import="util.JpaUtil" %><%--
+<%@ page import="util.JpaUtil" %>
+<%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: efsam
   Date: 1/27/2021
@@ -7,6 +8,9 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    int count = 1;
+%>
 <html>
 <head>
     <title>Show</title>
@@ -15,10 +19,10 @@
 <table align="center" border="2" cellpadding="5">
     <tr>
         <th>
-            First name
+            Num
         </th>
         <th>
-            Last name
+            Full name
         </th>
         <th>
             Email
@@ -28,10 +32,10 @@
     <c:forEach items="${list}" var="emp" >
     <tr>
         <td>
-            <c:out value="${emp.firstName}"/>
+            <%=count++%>
         </td>
         <td>
-            <c:out value="${emp.lastName}"/>
+        <a href="detail?value=${emp.employeeId}"><c:out value="${emp.firstName}"/> <c:out value="${emp.lastName}"/></a>
         </td>
         <td>
             <c:out value="${emp.email}"/>
