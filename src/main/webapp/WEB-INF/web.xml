@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>save</servlet-name>
-        <servlet-class>servlet.saveServlet</servlet-class>
+        <servlet-class>servlet.SaveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>save</servlet-name>
@@ -13,7 +13,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>show</servlet-name>
-        <servlet-class>servlet.showServlet</servlet-class>
+        <servlet-class>servlet.ShowServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>show</servlet-name>
