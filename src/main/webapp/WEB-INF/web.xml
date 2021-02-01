@@ -19,4 +19,20 @@
         <servlet-name>show</servlet-name>
         <url-pattern>/show</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>detail</servlet-name>
+        <servlet-class>servlet.DetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>detail</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>update</servlet-name>
+        <servlet-class>servlet.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 </web-app>
