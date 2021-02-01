@@ -9,6 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.UUID;
 
 public class EmployeeDao extends EntityDao<Employee, Integer>{
 
@@ -27,6 +28,7 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
         employee.setFirstName(fName);
         employee.setLastName(lName);
         employee.setEmail(email);
+        employee.setEmployeeId(String.valueOf(UUID.randomUUID()));
         save(employee);
         entityManager.getTransaction().commit();
         entityManager.close();
