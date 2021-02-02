@@ -30,4 +30,9 @@ public class Employee {
     @Column(name = "emp_id")
     private String employeeId;
 
+    @OneToOne
+    private Detail detail;
+
+    @OneToOne
+    private Address address;
 }
