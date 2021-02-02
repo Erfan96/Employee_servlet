@@ -1,11 +1,11 @@
 input{
     font-size: 16px;
     margin: 8px;
-    background-color: cornsilk;
+    background-color: #f2f2f2;
     border:none;
 }
 #but1{
-    background-color: cadetblue;
+    background-color: #4CAF50;
     border-radius: 50%;
     border: none;
     margin: 4px 2px;
@@ -13,7 +13,7 @@ input{
     color: white;
 }
 #but2{
-    background-color: rgb(163, 114, 147);
+    background-color: #4CAF50;
     justify-content: center;
     display: flex;
     position: fixed;
@@ -25,11 +25,12 @@ input{
     width: 500px;
     padding: 50px;
     font-size: 20px;
+    color: white;
 }
 #container{
     justify-content: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.37) ;
+    background-color:  #b4b3b3 ;
     margin: auto;
     border-radius: 5px;
     box-shadow: 0 0 10px #000;
