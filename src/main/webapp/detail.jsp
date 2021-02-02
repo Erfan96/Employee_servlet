@@ -15,7 +15,7 @@
 
 <body>
 <table>
-<form action="update">
+<form action="update" method="post">
      <c:forEach var="emp" items="${list}">
         <tr>
             <th>First name :</th>
@@ -60,11 +60,14 @@
          <td>
            <td>
              <button type="submit">Update</button>
-             <a href="">Delete</a>
+</form>
+        <form action="delete" method="post">
+             <button type="submit">delete</button>
+        </form>
            </td>
          </tr>
    </c:forEach>
- </form>
+
 </table>
 </body>
 </html>
