@@ -1,0 +1,51 @@
+input{
+    font-size: 16px;
+    margin: 8px;
+    background-color: cornsilk;
+    border:none;
+}
+#but1{
+    background-color: cadetblue;
+    border-radius: 50%;
+    border: none;
+    margin: 4px 2px;
+    padding: 15px 32px;
+    color: white;
+}
+#but2{
+    background-color: rgb(163, 114, 147);
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    border: none;
+    top: 60%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -250px;
+    width: 500px;
+    padding: 50px;
+    font-size: 20px;
+}
+#container{
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.37) ;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 500px;
+    height: 430px;
+    padding: 40px;
+    display: flex;
+    backdrop-filter: blur(10px);
+}
+#but1:hover{
+    filter: brightness(80%);
+}
+#but2:hover{
+    filter: brightness(80%);
+}
