@@ -27,6 +27,4 @@ public class Detail {
     @Column(name = "certificate_id")
     private String certificateId;
 
-    @OneToOne
-    private Employee employee;
 }
