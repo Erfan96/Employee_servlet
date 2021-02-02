@@ -31,6 +31,4 @@ public class Address {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToOne
-    private Employee employee;
 }
