@@ -21,22 +21,23 @@ public class AddressDao extends EntityDao<Address, Integer> {
     }
 
     public Address getAddressWithEmployeeId(String empId) {
-        try {
-            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-            CriteriaQuery<Address> criteria = cb.createQuery(Address.class);
-            Root<Employee> fromEmployee = criteria.from(Employee.class);
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Address> criteria = cb.createQuery(Address.class);
+        Root<Employee> fromEmployee = criteria.from(Employee.class);
 
-            Join<Employee, Address> join = fromEmployee.join("address");
-            criteria.select(join).where(cb.equal(fromEmployee.get("employeeId"), empId));
-            return entityManager.createQuery(criteria).getSingleResult();
-        }catch (Exception e) {
-            return new Address();
-        }
+        Join<Employee, Address> join = fromEmployee.join("address");
+        criteria.select(join).where(cb.equal(fromEmployee.get("employeeId"), empId));
+        return entityManager.createQuery(criteria).getSingleResult();
     }
 
-    public void updateAddress(Address address) {
-        entityManager.getTransaction().begin();
+    public void updateAddress(String id, String state, String street, String postCode, String phoneNum) {
+        Address address = getAddressWithEmployeeId(id);
+        address.setState(state);
+        address.setStreet(street);
+        address.setPostalCode(postCode);
+        address.setPhoneNumber(phoneNum);
         update(address);
         entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }
