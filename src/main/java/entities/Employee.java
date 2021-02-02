@@ -30,9 +30,9 @@ public class Employee {
     @Column(name = "emp_id")
     private String employeeId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Detail detail;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Address address;
 }
