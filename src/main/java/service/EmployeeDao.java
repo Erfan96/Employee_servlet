@@ -29,6 +29,17 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
         employee.setLastName(lName);
         employee.setEmail(email);
         employee.setEmployeeId(String.valueOf(UUID.randomUUID()));
+        DetailDao detailDao = new DetailDao(entityManager);
+        Detail detail = new Detail();
+        detailDao.save(detail);
+
+        AddressDao addressDao = new AddressDao(entityManager);
+        Address address = new Address();
+        addressDao.save(address);
+
+        employee.setDetail(detail);
+        employee.setAddress(address);
+
         save(employee);
         entityManager.getTransaction().commit();
         entityManager.close();
@@ -45,33 +56,12 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
     }
 
     public void updateEmployee(String id, String fName, String lName, String email) {
-
-//        DetailDao detailDao = new DetailDao(entityManager);
-//        AddressDao addressDao = new AddressDao(entityManager);
-
-//        Detail detail = detailDao.getDetailWithEmployeeId(id);
-//        detail.setFatherName(faName);
-//        detail.setNationalCode(naCode);
-//        detail.setCertificateId(cerNum);
-//        detailDao.updateDetail(detail);
-
-
-//        Address address = addressDao.getAddressWithEmployeeId(id);
-//        address.setState(state);
-//        address.setStreet(street);
-//        address.setPostalCode(postCode);
-//        address.setPhoneNumber(phoneNum);
-//        addressDao.updateAddress(address);
-
         entityManager.getTransaction().begin();
         Employee employee = getEmployeeWithEmployeeId(id);
         employee.setFirstName(fName);
         employee.setLastName(lName);
         employee.setEmail(email);
-        //employee.setDetail(detail);
-        //employee.setAddress(addressDao.getAddressWithEmployeeId(id));
         update(employee);
-        entityManager.getTransaction().commit();
     }
 
     public Employee getEmployeeWithEmployeeId(String empId) {
