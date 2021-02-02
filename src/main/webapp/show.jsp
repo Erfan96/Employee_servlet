@@ -14,9 +14,10 @@
 <html>
 <head>
     <title>Show</title>
+    <link rel="stylesheet" type="text/css" href="show.css">
 </head>
 <body>
-<table align="center" border="2" cellpadding="5">
+<table id="emp">
     <tr>
         <th>
             Num
@@ -30,17 +31,17 @@
     </tr>
 
     <c:forEach items="${list}" var="emp" >
-    <tr>
-        <td>
-            <%=count++%>
-        </td>
-        <td>
-        <a href="detail?value=${emp.employeeId}"><c:out value="${emp.firstName}"/> <c:out value="${emp.lastName}"/></a>
-        </td>
-        <td>
-            <c:out value="${emp.email}"/>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <%=count++%>
+            </td>
+            <td>
+                <a href="detail?value=${emp.employeeId}"><c:out value="${emp.firstName}"/> <c:out value="${emp.lastName}"/></a>
+            </td>
+            <td>
+                <c:out value="${emp.email}"/>
+            </td>
+        </tr>
     </c:forEach>
 </table>
 </body>
