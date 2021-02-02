@@ -9,7 +9,7 @@ import javax.persistence.Tuple;
 import javax.persistence.criteria.*;
 import java.util.List;
 
-public class DetailDao extends EntityDao<Detail, Integer>{
+public class DetailDao extends EntityDao<Detail, Integer> {
 
     public DetailDao(EntityManager entityManager) {
         super(entityManager);
@@ -39,23 +39,21 @@ public class DetailDao extends EntityDao<Detail, Integer>{
     }
 
     public Detail getDetailWithEmployeeId(String empId) {
-        try {
-            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-            CriteriaQuery<Detail> criteria = cb.createQuery(Detail.class);
-            Root<Employee> fromEmployee = criteria.from(Employee.class);
 
-            Join<Employee, Detail> join = fromEmployee.join("detail");
-            criteria.select(join).where(cb.equal(fromEmployee.get("employeeId"), empId));
-            return entityManager.createQuery(criteria).getSingleResult();
-        }catch (Exception e) {
-            return new Detail();
-        }
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Detail> criteria = cb.createQuery(Detail.class);
+        Root<Employee> fromEmployee = criteria.from(Employee.class);
+
+        Join<Employee, Detail> join = fromEmployee.join("detail");
+        criteria.select(join).where(cb.equal(fromEmployee.get("employeeId"), empId));
+        return entityManager.createQuery(criteria).getSingleResult();
     }
 
-    public void updateDetail(Detail detail) {
-        entityManager.getTransaction().begin();
+    public void updateDetail(String id, String faName, String naCode, String cerNum) {
+        Detail detail = getDetailWithEmployeeId(id);
+        detail.setFatherName(faName);
+        detail.setNationalCode(naCode);
+        detail.setCertificateId(cerNum);
         update(detail);
-        entityManager.getTransaction().commit();
     }
-
 }
