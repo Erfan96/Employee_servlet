@@ -9,16 +9,20 @@
 <html>
 <head>
     <title>Employee</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-<form action="save" method="post">
-<input name="fName" type="text" placeholder="Enter first name" required>
-<input name="lName" type="text" placeholder="Enter last name" required>
-<input name="email" type="text" placeholder="Enter email" required>
-<input type="submit" value="submit">
-</form>
+<div id="container">
+    <p>Enter employee</p>
+    <form action="save" method="post">
+        <input name="fName" type="text" placeholder="Enter first name" required>
+        <input name="lName" type="text" placeholder="Enter last name" required>
+        <input name="email" type="text" placeholder="Enter email" required>
+        <input id="but1" type="submit" value="submit">
+    </form>
+</div>
 <form action="show">
-    <input type="submit" value="show">
+    <input id="but2" type="submit" value="show">
 </form>
 </body>
 </html>
