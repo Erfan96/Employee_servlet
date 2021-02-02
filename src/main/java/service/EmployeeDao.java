@@ -72,4 +72,11 @@ public class EmployeeDao extends EntityDao<Employee, Integer>{
         criteria.select(fromEmployee).where(cb.equal(fromEmployee.get("employeeId"), empId));
         return entityManager.createQuery(criteria).getSingleResult();
     }
+
+    public void deleteEmployeeDetailAndAddress(String id) {
+        entityManager.getTransaction().begin();
+        Employee employee = getEmployeeWithEmployeeId(id);
+        delete(employee);
+        entityManager.getTransaction().commit();
+    }
 }
