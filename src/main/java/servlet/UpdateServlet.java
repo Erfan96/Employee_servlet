@@ -1,8 +1,5 @@
 package servlet;
 
-import entities.Address;
-import entities.Detail;
-import entities.Employee;
 import service.AddressDao;
 import service.DetailDao;
 import service.EmployeeDao;
@@ -14,12 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 public class UpdateServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
 
         EntityManager entityManager = JpaUtil.getEntityManagerFactory().createEntityManager();
@@ -40,8 +38,12 @@ public class UpdateServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String id = (String) session.getAttribute("empId");
 
-
-        employeeDao.updateEmployee(id, fName, lName, email, faName, naCode, cerNum);
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        employeeDao.updateEmployee(id, fName, lName, email);
+        detailDao.updateDetail(id, faName, naCode, cerNum);
+        addressDao.updateAddress(id, state, street, postCode, phoneNum);
+        try(PrintWriter out = resp.getWriter()) {
+            out.println("Updated successfully.");
+            req.getRequestDispatcher("index.jsp").include(req, resp);
+        }
     }
 }
